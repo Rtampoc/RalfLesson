@@ -31,8 +31,9 @@ namespace MVC.Controllers {
         [HttpPost]
         public ActionResult MyProfile(string Search)
         {
+
             var item = mod.List(Search);
-            return View(item);
+            return PartialView("data",item);
         }
 
         public ActionResult Create() {
