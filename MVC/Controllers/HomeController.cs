@@ -33,7 +33,7 @@ namespace MVC.Controllers {
         {
 
             var item = mod.List(Search);
-            return PartialView("data",item);
+            return View("data", item);
         }
 
         public ActionResult Create() {
