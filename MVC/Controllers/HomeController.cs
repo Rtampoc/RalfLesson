@@ -65,7 +65,7 @@ namespace MVC.Controllers {
         public ActionResult Delete(Person m, int ID)
         {
             mod.DeleteViewData(m);
-            mod.DeleteData(ID);//
+            mod.DeleteData(ID);
             return RedirectToAction("MyProfile");
         }
 

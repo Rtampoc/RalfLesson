@@ -41,7 +41,7 @@ namespace MVC.Models
             });
         }*/
 
-        //Another method/condition
+        //Another method
         public List<Person> List(string Search)
         {
             return s.Query<Person>("SELECT * FROM tbl_sample WHERE CONCAT(fname,mn,lname) LIKE @search", p => p.Add("@search", $"%{ Search }%"));
