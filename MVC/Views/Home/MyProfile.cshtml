@@ -5,35 +5,45 @@
         <a href="@Url.Action("Create", "Home") " class="btn btn-primary">New Record</a>
     </div>
     <div class="col">
-        <form class="d-flex" role="search" action="@Url.Action("MyProfile", "Home")" method="post">
+        @using (Ajax.BeginForm("data", "Home", new AjaxOptions { OnSuccess = "success" }))
+        {
             <input class="form-control me-2" name="Search" type="search" placeholder="Search" aria-label="Search ">
             <button class="btn btn-primary" type="submit">Search</button>
-        </form>
+        }
     </div>
 
 </div>
 
 <div id="partialzone">
 
-
+    @Html.Partial("data")
 </div>
 
 @section Scripts {
     <script>
+        function success(d) {
+            $('#partialzone').html(d);
+        }
+
+        @*$(function () {
+            var srch = $('input[name="Search"]').val();
+            $.ajax({
+                url: "@(Url.Action("PartialVD", "Home"))",
+                type: "GET",
+                dataType: "html",
+                data: {
+                    search: srch
+                },
+
+                success: (data) => {
+                    $('#partialzone').html(data);
+
+                },
+
+            });
+        });*@
+            
         
-        $.ajax({
-            url: "@(Url.Action("PartialVD", "Home"))",
-            type: "GET",
-            dataType: "Text",
-            cache: false,
-            async: false,
-
-            success: (data) => {
-                $("#partialzone").html(data)
-                              
-            },
-
-        });
         
 
 

@@ -33,7 +33,7 @@ namespace MVC.Controllers {
         {
 
             var item = mod.List(Search);
-            return View("data", item);
+            return View(item);
         }
 
         public ActionResult Create() {
@@ -70,10 +70,10 @@ namespace MVC.Controllers {
             return RedirectToAction("MyProfile");
         }
 
-        public PartialViewResult PartialVD()
+        public PartialViewResult data(string Search)
         {
-            var item = mod.List();
-            return PartialView("data", item);
+            var item = mod.List(Search);
+            return PartialView(item);
         }
 
     }
