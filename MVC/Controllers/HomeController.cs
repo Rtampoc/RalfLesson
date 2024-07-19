@@ -23,6 +23,8 @@ namespace MVC.Controllers {
 
             return View();
         }
+
+        
         [HttpGet]
         public ActionResult MyProfile() {
             
