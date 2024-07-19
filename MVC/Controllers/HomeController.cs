@@ -28,13 +28,7 @@ namespace MVC.Controllers {
             
             return View(mod.List());
         }
-        [HttpPost]
-        public ActionResult MyProfile(string Search)
-        {
 
-            var item = mod.List(Search);
-            return View(item);
-        }
 
         public ActionResult Create() {
             return View();

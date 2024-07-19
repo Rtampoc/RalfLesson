@@ -1,9 +1,15 @@
-﻿
+﻿@model IEnumerable<MVC.Models.Person>
+
+@{
+    ViewBag.Title = "data";
+}
+
 <h2>My Profile</h2>
 <div class="row">
     <div class="col">
         <a href="@Url.Action("Create", "Home") " class="btn btn-primary">New Record</a>
     </div>
+
     <div class="col">
         @using (Ajax.BeginForm("data", "Home", new AjaxOptions { OnSuccess = "success" }))
         {
@@ -16,7 +22,8 @@
 
 <div id="partialzone">
 
-    @Html.Partial("data")
+    @Html.Partial("data", Model)
+
 </div>
 
 @section Scripts {
@@ -24,28 +31,6 @@
         function success(d) {
             $('#partialzone').html(d);
         }
-
-        @*$(function () {
-            var srch = $('input[name="Search"]').val();
-            $.ajax({
-                url: "@(Url.Action("PartialVD", "Home"))",
-                type: "GET",
-                dataType: "html",
-                data: {
-                    search: srch
-                },
-
-                success: (data) => {
-                    $('#partialzone').html(data);
-
-                },
-
-            });
-        });*@
-            
-        
-        
-
-
+     
     </script>
 }
