@@ -10,6 +10,8 @@ namespace MVC.Models
 {
     public class Person
     {
+        
+        
         /*DBControl s = new DBControl(DatabaseType.MSSQL, @"SERVER=(local)\SQLEXPRESS;DATABASE=DBCRUD;USER=SA;PWD=1234");*/
         public int ID { get; set; }
         [Display(Name = "First name")]
