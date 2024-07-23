@@ -1,4 +1,5 @@
 ﻿using AAJControl;
+using MVC.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,8 +11,7 @@ namespace MVC.Models
 {
     public class Person
     {
-        
-        
+        dbController s = new dbController();
         /*DBControl s = new DBControl(DatabaseType.MSSQL, @"SERVER=(local)\SQLEXPRESS;DATABASE=DBCRUD;USER=SA;PWD=1234");*/
         public int ID { get; set; }
         [Display(Name = "First name")]
@@ -26,7 +26,9 @@ namespace MVC.Models
         [Display(Name = "Date of Birth")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [DataType(DataType.Date)]
+       
         public DateTime bday { get; set; }
+        
         public decimal? salary { get; set; }
 
         public List<Person> List()
@@ -46,7 +48,8 @@ namespace MVC.Models
 
         //Another method
         public List<Person> List(string Search)
-        {
+        {   
+            
             return s.Query<Person>("SELECT * FROM tbl_sample WHERE CONCAT(fname,mn,lname) LIKE @search", p => p.Add("@search", $"%{ Search }%"));
         }
 

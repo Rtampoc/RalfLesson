@@ -19,8 +19,8 @@
                         <td>@item.fname</td>
                         <td>@item.mn</td>
                         <td>@item.lname</td>
-                        <td>@item.bday</td>
-                        <td>@item.salary</td>
+                        <td>@($"{item.bday:MMMM dd, yyyy}")</td>
+                        <td>@($"{item.salary:0,0}")</td>
                         <td>
                             <a href="@Url.Action("Edit", "Home", new { ID = item.ID })" class="btn btn-primary">Edit</a>
                             <a href="@Url.Action("Delete", "Home", new { ID = item.ID })" class="btn btn-primary">Delete</a>

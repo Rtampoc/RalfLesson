@@ -11,11 +11,19 @@
     </div>
 
     <div class="col">
-        @using (Ajax.BeginForm("data", "Home", new AjaxOptions { OnSuccess = "success" }))
-        {
-            <input class="form-control me-2" name="Search" type="search" placeholder="Search" aria-label="Search ">
-            <button class="btn btn-primary" type="submit">Search</button>
-        }
+    @using (Ajax.BeginForm("data", "Home", new AjaxOptions { OnSuccess = "success" }))
+    {
+        <div class="row">
+            <div class="col">
+                <input class="form-control" name="Search" type="search" placeholder="Search" aria-label="Search ">
+            </div>
+            <div class="col">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </div>
+    }
+
+
     </div>
 
 </div>
